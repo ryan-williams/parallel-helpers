@@ -1,12 +1,12 @@
 
 alias plp="parallel -k -j+0 --env PATH"
 
-alias p="parallel -k -j+0 --env PATH"
-alias pc="parallel -k -j+0 --env PATH --colsep ' '"
-alias p:="parallel -k -j+0 --env PATH --colsep ':'"
+defn p parallel -k -j+0 --env PATH
+defn pc parallel -k -j+0 --env PATH --colsep ' '
+defn pcl parallel -k -j+0 --env PATH --colsep ':'
 
-alias pds="parallel -k -j+0 --env PATH --delimiter ' '"
-alias pd:="parallel -k -j+0 --env PATH --delimiter ':'"
+defn pds parallel -k -j+0 --env PATH --delimiter ' '
+defn pdc parallel -k -j+0 --env PATH --delimiter ':'
 
 alias p1="parallel -k -j+1 --env PATH"
 
