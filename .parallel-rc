@@ -24,3 +24,6 @@ env_parallel() {
 alias pj=parallel-j
 alias pf=parallel-functions
 alias p0="parallel -0 -k --env PATH"
+alias pz="parallel -0 -k --env PATH"
+alias p01="parallel -0 -j+1 -k --env PATH"
+alias pz1="parallel -0 -j+1 -k --env PATH"
