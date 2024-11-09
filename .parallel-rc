@@ -22,7 +22,10 @@ export -f parallel_delimiter_spaces
 defn pds parallel_delimiter_spaces
 defn pdc parallel_delimiter ':'
 
-alias p1="parallel -k -j+1 --env PATH"
+alias p1="parallel -k -j1 --env PATH"
+alias p2="parallel -k -j2 --env PATH"
+alias p4="parallel -k -j4 --env PATH"
+alias p8="parallel -k -j8 --env PATH"
 
 #alias loop="for f in"
 
