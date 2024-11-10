@@ -3,6 +3,35 @@ alias plp="parallel -k -j+0 --env PATH"
 
 defn p parallel -k -j+0 --env PATH
 
+parallel_title() {
+    local _last=("${@: -1}")
+    local last="${_last[0]}"
+    set -- "${@:1:$#-1}"
+    if ! [[ "$last" == *"{}"* ]]; then
+        last="$last {}"
+    fi
+    last="echo {}:; $last"
+    p "$@" "$last"
+}
+export -f parallel_title
+defn pel parallel_title
+defn ptl parallel_title
+
+parallel_title_inline() {
+    local _last=("${@: -1}")
+    local last="${_last[0]}"
+    set -- "${@:1:$#-1}"
+    if ! [[ "$last" == *"{}"* ]]; then
+        last="$last {}"
+    fi
+    last="echo -n '{}: '; $last"
+    p "$@" "$last"
+}
+export -f parallel_title_inline
+defn pei parallel_title_inline
+defn pet parallel_title_inline
+defn pti parallel_title_inline
+
 defn parallel_colsep parallel -k -j+0 --env PATH --colsep
 defn pc parallel_colsep
 
