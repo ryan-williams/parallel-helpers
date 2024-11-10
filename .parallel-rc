@@ -55,6 +55,7 @@ alias p1="parallel -k -j1 --env PATH"
 alias p2="parallel -k -j2 --env PATH"
 alias p4="parallel -k -j4 --env PATH"
 alias p8="parallel -k -j8 --env PATH"
+alias p16="parallel -k -j16 --env PATH"
 
 #alias loop="for f in"
 
