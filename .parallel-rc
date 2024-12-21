@@ -4,6 +4,11 @@ alias plp="parallel -k -j+0 --env PATH"
 defn p parallel -k -j+0 --env PATH
 
 parallel_title() {
+    # Usage: parallel_title [-e] cmd ...
+    local nl=
+    if [ "$1" == -e ]; then
+      nl=1; shift
+    fi
     local _last=("${@: -1}")
     local last="${_last[0]}"
     set -- "${@:1:$#-1}"
@@ -11,11 +16,16 @@ parallel_title() {
         last="$last {}"
     fi
     last="echo {}:; $last"
+    if [ -n "$nl" ]; then
+        last="$last; echo"
+    fi
     p "$@" "$last"
 }
 export -f parallel_title
 defn pel parallel_title
+defn pele parallel_title -e
 defn ptl parallel_title
+defn ptle parallel_title -e
 
 parallel_title_inline() {
     local _last=("${@: -1}")
